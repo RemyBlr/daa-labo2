@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    tools:context=".MainActivity">
+    tools:context=".EditUsernameActivity">
 
     <!-- Barre d'action -->
     <com.google.android.material.appbar.AppBarLayout
@@ -28,32 +28,23 @@
         android:layout_centerInParent="true"
         android:layout_below="@id/appbarlayout">
 
-        <TextView
-            android:id="@+id/usernameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="Bienvenue, veuillez entrer votre nom"/>
-
         <EditText
             android:id="@+id/usernameField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="20dp"
-            android:hint="Enter username"
+            android:hint="Entrer votre prénom"
             android:inputType="text"
-            android:visibility="invisible"
             android:padding="8dp" />
 
         <Button
-            android:id="@+id/connectButton"
+            android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/usernameLabel"
-            android:layout_alignBaseline="@id/usernameLabel"
-            android:text="Éditer"/>
+            android:layout_toEndOf="@id/usernameField"
+            android:layout_alignBaseline="@id/usernameField"
+            android:text="Sauver"/>
     </RelativeLayout>
 
 </RelativeLayout>
