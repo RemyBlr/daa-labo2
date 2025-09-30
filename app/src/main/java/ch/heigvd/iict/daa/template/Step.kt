@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import ch.heigvd.iict.daa.labo2.R
 
 private const val COUNTER = "counter"
@@ -15,12 +16,12 @@ private const val COUNTER = "counter"
  * create an instance of this fragment.
  */
 class Step : Fragment() {
-    private var count: Int = 0
+    private var id: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            count = it.getInt(COUNTER)
+            id = it.getInt(COUNTER)
         }
     }
 
@@ -35,8 +36,8 @@ class Step : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val counter = view.findViewById<TextView>(R.id.counter)
-        counter.text = count;
+        val idComponent = view.findViewById<TextView>(R.id.counter)
+        idComponent.text = id.toString();
     }
 
     companion object {
@@ -46,12 +47,11 @@ class Step : Fragment() {
          *
          * @return A new instance of fragment Step.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(count: Int) =
+        fun newInstance(newId: Int) =
             Step().apply {
                 arguments = Bundle().apply {
-                    putInt(COUNTER, count)
+                    putInt(COUNTER, newId)
                 }
             }
     }

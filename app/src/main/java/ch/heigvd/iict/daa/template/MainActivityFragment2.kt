@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ch.heigvd.iict.daa.labo2.R
+import android.widget.Button
 
 class MainActivityFragment2 : AppCompatActivity() {
     private var id: Int = 0;
@@ -20,6 +21,15 @@ class MainActivityFragment2 : AppCompatActivity() {
             insets
         }
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        // Set listener for my buttons
+        val backButton = findViewById<Button>(R.id.backButton)
+        val closeButton = findViewById<Button>(R.id.closeButton)
+        val nextButton = findViewById<Button>(R.id.nextButton)
+
+        nextButton.setOnClickListener { next() }
+        backButton.setOnClickListener { back() }
+        closeButton.setOnClickListener { close() }
     }
 
     // Either get back to the previous fragment in the stack, or close
@@ -33,12 +43,13 @@ class MainActivityFragment2 : AppCompatActivity() {
             null,
             androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
         )
+        finish()
     }
 
     // Pile up the current and go to the next fragment
     private fun next() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, Step.newInstance(id++))
+            .replace(R.id.fragment_container, Step.newInstance(++id))
             .addToBackStack(null)
             .commit()
     }
