@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -21,30 +21,30 @@
             android:background="?attr/colorPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <RelativeLayout
-        android:id="@+id/editUsernameContainer"
+    <!-- Username input -->
+    <EditText
+        android:id="@+id/usernameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/appbarlayout">
+        android:hint="@string/entrer_prenom"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/appbarlayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/saveButton"
+        app:layout_constraintVertical_bias="0.5"/>
 
-        <EditText
-            android:id="@+id/usernameField"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Entrer votre prénom"
-            android:inputType="text"
-            android:padding="8dp" />
+    <!-- Save button -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/usernameField"
+        android:drawableLeft="@drawable/check"
+        android:text="@string/sauver"
+        app:layout_constraintTop_toTopOf="@id/usernameField"
+        app:layout_constraintBottom_toBottomOf="@id/usernameField"
+        app:layout_constraintStart_toEndOf="@id/usernameField"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/usernameField"
-            android:layout_alignBaseline="@id/usernameField"
-            android:text="Sauver"/>
-    </RelativeLayout>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

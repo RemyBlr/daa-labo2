@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
                     val newUsername = result.data?.getStringExtra("username")
-                    label.text = "Bienvenue, $newUsername"
+                    label.text = "Bienvenue, $newUsername !"
                 }
             }
 
