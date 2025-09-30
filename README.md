@@ -1,14 +1,36 @@
-Ce projet Android est basé sur le template "Empty Views Activity".
+# DAA - labo2
 
-A partir duquel avons effectué les modifications suivantes :
+## Exercice 1
 
-- Changement de la couleur du fond du thème, de l'icône de l'app et du message d'accueil
-- Ajout dans le layout de l'activité d'une barre des tâches et liaison de celle-ci avec l'activité au niveau de MainActivity.kt
+### Choix d'implémentations
+Il y a deux activités distinctes, une première `MainActivity` qui affiche le message de bienvenue,
+et `EditUsernameActivity` qui permet de choisir un nom et de l'envoyer à la première.
 
-Ce projet peut vous servir de point de départ pour les laboratoires de DAA pour lesquels aucun code n'est mis à disposition sur Cyberlearn.
+Utilisation des contracts de la librairie `AndroidX` avec `registerForActivityResult` comme vu
+lors de la théorie.
 
-Si vous souhaitez renommer l'application et changer son identifiant, voici les opérations à effectuer :
+Utilisation de `Lod.d` dans chaque méthode pour logger les différents chemins parcourus.
 
-- Changer le nom du projet dans le fichier `.idea/.name`
-- Editer la propriété `applicationId` dans le fichier `build.gradle.kts` du module `app`
-- Idéalement, il faudrait également modifier le nom de package (propriété `namespace` du fichier `build.gradle.kts`) ainsi que refactoriser le code
+Utilisation d'un `ConstrainLayout` afin de pouvoir centrer horizontallement et verticallement dans 
+le parent.
+
+### Questions
+- Que se passe-t-il si l’utilisateur appuie sur « back » lorsqu’il se trouve sur la seconde Activité ?
+- Veuillez réaliser un diagramme des changements d’état des deux Activités pour les utilisations
+suivantes, vous mettrez en évidence les différentes instances de chaque Activité :
+  - L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et
+  sauve.
+  - L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en
+  mode paysage, renseigne son prénom et sauve.
+- Que faut-il mettre en place pour que vos Activités supportent la rotation de l’écran ? Est-ce
+nécessaire de le réaliser pour les deux Activités, quelle est la différence ?
+
+### Tests
+| Test effectué                                        | Résultat attendu                                             | Résultat obtenu    |
+|------------------------------------------------------|--------------------------------------------------------------|--------------------|
+| Ouvrir l'application                                 | Affichage du "Bonjour"                                       | OK                 |
+| Cliquer sur le bouton éditer                         | Affichage d'un champ de text avec un bouton sauver           | OK                 |
+| Cliquer sur le bouton sauver avec un nom             | Affichage du "Bonjour + nom"                                 | OK                 |
+| Cliquer sur le bouton sauver avec champ vide         | Il ne devrait pas avoir de modification du message précédent | KO le nom est vide |
+| Rotation de l'écran                                  | Les texts et les boutons s'adaptent à l'écran                | OK                 |
+| Cliquer sur le bouton "back" depuis la 2ème activité | Retour à la 1ère activité sans changement de text            | OK                 |
