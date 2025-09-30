@@ -31,7 +31,8 @@
         app:layout_constraintTop_toBottomOf="@id/appbarlayout"
         app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+    </androidx.fragment.app.FragmentContainerView>
 
     <!-- Buttons -->
     <RelativeLayout
@@ -65,9 +66,7 @@
             android:layout_alignParentEnd="true"
             android:text="Next"
             android:textColor="@android:color/white" />
-
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
