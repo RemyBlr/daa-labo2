@@ -1,3 +1,10 @@
+/**
+ * DAA - labo2
+ * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+ * Date : 03.10.2025
+ * Description : Affiche une entrée de texte et un bouton pour sauvegarder le nom d'utilisateur
+ */
+
 package ch.heigvd.iict.daa.labo2
 
 import android.app.Activity
@@ -36,13 +43,18 @@ class EditUsernameActivity : AppCompatActivity() {
         // la barre d'action doit être définie dans le layout, on la lie à l'activité
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        // get elements in view
         input = findViewById(R.id.usernameField)
         button = findViewById(R.id.saveButton)
 
         button.setOnClickListener {
+            // using intent to return the result to the calling activity
             val resultIntent = intent
+            // add the new username to the intent
             resultIntent.putExtra("username", input.text.toString())
-            setResult(Activity.RESULT_OK, resultIntent)
+            // set result to valid
+            setResult(RESULT_OK, resultIntent)
+            // finish activity
             finish()
         }
 

@@ -1,3 +1,9 @@
+/**
+ * DAA - labo2
+ * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+ * Date : 03.10.2025
+ * Description : Affiche un label et un bouton pour éditer le nom d'utilisateur
+ */
 package ch.heigvd.iict.daa.labo2
 
 import android.os.Bundle
@@ -58,7 +64,10 @@ class MainActivity : AppCompatActivity() {
 
         // listener for button
         button.setOnClickListener {
+            // create intent to start EditUsernameActivity
             val intent = Intent(this, EditUsernameActivity::class.java)
+            // launch the activity with the contract
+            // get the result in the lambda above
             editUsernameLauncher.launch(intent)
         }
 
