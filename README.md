@@ -4,7 +4,11 @@
 # Classe_Groupe : DAA_B_9
 
 ## Introduction
-TODO
+Ce laboratoire à pour but de nous familiariser avec les bases du développement Android en utilisant Kotlin.
+Ce labo vise particulièrement les Activités et les Fragments. Aux travers de trois manipulations différentes, nous
+entraînons la navigation entre les activités, les cycles de vie d'un activité, l'utilisation et la gestion de fragments.
+Le but final de ce labo est de nous faire comprendre comment Android gères ces différents composants, afin d'utiliser 
+les meilleures pratiques pour s'assurer d'avoir une application robuste et réactive.
 
 ## Exercice 1 : Les Activités
 
@@ -22,6 +26,7 @@ le parent.
 
 ### Questions
 - Que se passe-t-il si l’utilisateur appuie sur « back » lorsqu’il se trouve sur la seconde Activité ?
+
 Il revient à la première activité sans modification du texte. Ceci dans les deux cas, que ça
 soit le message de bienvenue par défaut ou le message modifié avec un nouveau nom.
 
@@ -29,14 +34,17 @@ soit le message de bienvenue par défaut ou le message modifié avec un nouveau 
 suivantes, vous mettrez en évidence les différentes instances de chaque Activité :
   - L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et
   sauve.
+
   ![Diagramme d'état cas 1](./images/daa_labo2_cas1.png)
   
   - L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en
   mode paysage, renseigne son prénom et sauve.
+
   ![Diagramme d'état cas 2](./images/daa_labo2_cas2.png)
 
 - Que faut-il mettre en place pour que vos Activités supportent la rotation de l’écran ? Est-ce
 nécessaire de le réaliser pour les deux Activités, quelle est la différence ?
+
 Il faut sauvegarder l'état de l'activité avant la rotation et le restaurer après.
 Seulement dans `MainActivity` car c'est la seule activité qui a un état à conserver (le nom).
 Dans `EditUsernameActivity, le champ de texte restaure son contenu automatiquement.
@@ -56,4 +64,5 @@ Dans `EditUsernameActivity, le champ de texte restaure son contenu automatiqueme
 ## Exercice 3 : Le FragmentManager
 
 ## Conclusion
+
 TODO
