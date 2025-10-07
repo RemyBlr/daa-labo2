@@ -13,6 +13,7 @@ class MainActivityFragment2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
         setContentView(R.layout.fragmentmanager_activity)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -52,5 +53,18 @@ class MainActivityFragment2 : AppCompatActivity() {
             .replace(R.id.fragment_container, Step.newInstance(++id))
             .addToBackStack(null)
             .commit()
+    }
+
+    // Sauvegarde l'ancien état avant de tuer l'activité
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("counter", id)
+        super.onSaveInstanceState(outState)
+    }
+
+    // Restore l'ancien état
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        // get values from saved state
+        id = savedInstanceState.getInt("counter")
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }
