@@ -32,15 +32,18 @@ soit le message de bienvenue par défaut ou le message modifié avec un nouveau 
 
 - Veuillez réaliser un diagramme des changements d’état des deux Activités pour les utilisations
 suivantes, vous mettrez en évidence les différentes instances de chaque Activité :
+
+  J'ai mal lu l'énnoncé et ai commencé par des diagrammes de séquence, ils sont à dispositions dans le dossier [images](./images)
+
   - L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et
   sauve.
 
-  ![Diagramme d'état cas 1](./images/daa_labo2_cas1.png)
+  <img src="./images/daa_labo2_cas1_state.png" width="300px">
   
   - L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en
   mode paysage, renseigne son prénom et sauve.
 
-  ![Diagramme d'état cas 2](./images/daa_labo2_cas2.png)
+  <img src="./images/daa_labo2_cas2_state.png" width="300px">
 
 - Que faut-il mettre en place pour que vos Activités supportent la rotation de l’écran ? Est-ce
 nécessaire de le réaliser pour les deux Activités, quelle est la différence ?
@@ -141,4 +144,5 @@ On retrouve les éléments tel que, `fragmentmanager_activity.xml` qui est le la
 ## Conclusion
 
 TODO
+
 
