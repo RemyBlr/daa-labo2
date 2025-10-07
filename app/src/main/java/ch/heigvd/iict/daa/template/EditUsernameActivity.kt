@@ -2,33 +2,27 @@
  * DAA - labo2
  * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
  * Date : 03.10.2025
- * Description : Affiche un label et un bouton pour éditer le nom d'utilisateur
+ * Description : Affiche une entrée de texte et un bouton pour sauvegarder le nom d'utilisateur
  */
+
 package ch.heigvd.iict.daa.labo2
 
+import android.app.Activity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.util.Log
-import android.widget.Button
-import android.widget.TextView
-import android.content.Intent
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 
-class MainActivity : AppCompatActivity() {
+class EditUsernameActivity : AppCompatActivity() {
 
-    // variables that are going to be initialized late
-    private lateinit var label: TextView
+    private lateinit var input: EditText
     private lateinit var button: Button
-    private lateinit var editUsernameLauncher: ActivityResultLauncher<Intent>
-
     private var TAG = "Lifecycle"
-
-    private var FILE = "MainActivity -> "
-
+    private var FILE = "EditUsernameActivity -> "
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         // on spécifie le layout à afficher
-        setContentView(R.layout.activity_username)
+        setContentView(R.layout.activity_edit_username)
 
         // comme edge2edge est activé, l'application doit garder un espace suffisant pour la barre système
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -50,25 +44,18 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         // get elements in view
-        button = findViewById(R.id.editButton)
-        label = findViewById(R.id.usernameLabel)
+        input = findViewById(R.id.usernameField)
+        button = findViewById(R.id.saveButton)
 
-        // contract, after declaaring label
-        editUsernameLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == RESULT_OK) {
-                    val newUsername = result.data?.getStringExtra("username")
-                    label.text = "Bienvenue, $newUsername !"
-                }
-            }
-
-        // listener for button
         button.setOnClickListener {
-            // create intent to start EditUsernameActivity
-            val intent = Intent(this, EditUsernameActivity::class.java)
-            // launch the activity with the contract
-            // get the result in the lambda above
-            editUsernameLauncher.launch(intent)
+            // using intent to return the result to the calling activity
+            val resultIntent = intent
+            // add the new username to the intent
+            resultIntent.putExtra("username", input.text.toString())
+            // set result to valid
+            setResult(RESULT_OK, resultIntent)
+            // finish activity
+            finish()
         }
 
         Log.d(TAG, FILE + "onCreate")
@@ -91,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        Log.d(TAG, FILE + "nStop")
+        Log.d(TAG, FILE + "onStop")
     }
 
     override fun onDestroy() {
