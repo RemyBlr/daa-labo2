@@ -1,7 +1,16 @@
-# DAA - labo2
-# Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
-# Date : 03.10.2025
-# Classe_Groupe : DAA_B_9
+---
+title: |
+  | \vspace{5cm} \LARGE DAA - labo2
+subtitle: DAA_B_9
+author: Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+date: 03.10.2025
+geometry: margin=2cm
+output: 
+pdf_document:
+  toc: true
+---
+
+\pagebreak
 
 ## Introduction
 Ce laboratoire à pour but de nous familiariser avec les bases du développement Android en utilisant Kotlin.
