@@ -14,3 +14,19 @@ indépendantes de celui-ci. Comment est-ce que la restauration de l’état se p
 rotation de l’écran ?`
 
 Malgré la duplication du fragment les 2 différent conteneurs de fragments. Donc à l'appel de ces conteneurs via la classe R, chacun aura une identification unique -> R.id...par container, qui auront chacun leur propriétés. Il n'y aura donc aucune différence malgré la répétition du fragment.
+
+
+### Choix d'implémentation
+Le layout utilise un `ConstraintLayout` avec les éléments suivants :
+
+1. **AppBar** : En haut de l'écran
+2. **Container pour CounterFragment** : Occupe 50% de l'espace disponible sous l'AppBar
+3. **Container pour ColorFragment** : Occupe les 50% restants
+
+**Choix techniques :**
+
+- Utilisation de `FrameLayout` comme conteneurs de fragments (pratique standard Android)
+- Division de l'écran en deux parties égales via des contraintes :
+  - `layout_height="0dp"` avec contraintes top/bottom
+  - `layout_constraintHeight_percent="0.5"` pour 50% de hauteur chacun
+- L'AppBar est placée en haut et ne compte pas dans la division 50/50
