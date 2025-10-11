@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Daa" >
 
+        <!-- Exo1 -->
         <activity
-            android:name="ch.heigvd.iict.daa.template.MainActivityFragment1"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,16 @@
             </intent-filter>
         </activity>
 
+        <!-- Exo2 -->
+        <activity
+            android:name="ch.heigvd.iict.daa.template.MainActivityFragment1"
+            android:exported="true">
+        </activity>
+
+        <!-- Exo3 -->
         <activity android:name=".EditUsernameActivity" />
+
+
 
     </application>
 </manifest>
