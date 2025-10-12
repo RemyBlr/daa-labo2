@@ -1,3 +1,9 @@
+/**
+ * DAA - labo2
+ * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+ * Date : 03.10.2025
+ * Description : Fragment permettant de choisir une couleur RGB via des sliders
+ */
 package ch.heigvd.iict.daa.template.fragments
 
 import android.graphics.Color
@@ -20,6 +26,10 @@ class ColorFragment : Fragment() {
     private lateinit var gSeekBar : SeekBar
     private lateinit var bSeekBar : SeekBar
 
+    /**
+     * Initialise le fragment et récupère la couleur passée en argument
+     * @param savedInstanceState État sauvegardé du fragment
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -27,11 +37,23 @@ class ColorFragment : Fragment() {
         }
     }
 
+    /**
+     * Crée la vue du fragment à partir du layout XML
+     * @param inflater Inflateur de layout
+     * @param container Conteneur parent
+     * @param savedInstanceState État sauvegardé
+     * @return La vue créée
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // création de la vue à partir du xml
         return inflater.inflate(R.layout.fragment_color, container, false)
     }
 
+    /**
+     * Initialise les composants de la vue et configure les listeners
+     * @param view Vue racine du fragment
+     * @param savedInstanceState État sauvegardé
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         savedInstanceState?.let {
@@ -57,8 +79,18 @@ class ColorFragment : Fragment() {
         bSeekBar.setOnSeekBarChangeListener(seekBarChangeListener)
     }
 
+    /**
+     * Listener pour les changements de valeur des SeekBars
+     * Met à jour la couleur du background en fonction du slider modifié
+     */
     private val seekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
 
+        /**
+         * Appelé quand la valeur d'un SeekBar change
+         * @param seekBar Le SeekBar modifié
+         * @param value La nouvelle valeur (0-255)
+         * @param fromUser true si le changement vient de l'utilisateur
+         */
         override fun onProgressChanged(seekBar: SeekBar, value: Int, fromUser: Boolean) {
             val rComponent = Color.red(color)
             val gComponent = Color.green(color)
@@ -83,12 +115,21 @@ class ColorFragment : Fragment() {
 
     }
 
+    /**
+     * Sauvegarde l'état du fragment (la couleur actuelle)
+     * @param outState Bundle où sauvegarder l'état
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(ARG_HEX_COLOR, color)
     }
 
     companion object {
+        /**
+         * Crée une nouvelle instance du fragment avec une couleur initiale
+         * @param color Couleur initiale au format hexadécimal (par défaut #CDCDCD)
+         * @return Une nouvelle instance de ColorFragment
+         */
         @JvmStatic
         fun newInstance(color: String = DEFAULT_COLOR) =
             ColorFragment().apply {

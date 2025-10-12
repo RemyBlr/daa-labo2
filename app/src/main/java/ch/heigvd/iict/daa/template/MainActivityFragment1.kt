@@ -1,3 +1,9 @@
+/**
+ * DAA - labo2
+ * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+ * Date : 03.10.2025
+ * Description : Affiche deux fragments (CounterFragment et ColorFragment) dans une activité
+ */
 package ch.heigvd.iict.daa.template
 
 import android.os.Bundle
@@ -7,6 +13,10 @@ import ch.heigvd.iict.daa.template.fragments.ColorFragment
 import ch.heigvd.iict.daa.template.fragments.CounterFragment
 
 class MainActivityFragment1 : AppCompatActivity() {
+    /**
+     * Initialise l'activité et ajoute les deux fragments dans leurs conteneurs respectifs
+     * @param savedInstanceState État sauvegardé de l'activité
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_fragment1)
@@ -19,4 +29,3 @@ class MainActivityFragment1 : AppCompatActivity() {
         }
     }
 }
-

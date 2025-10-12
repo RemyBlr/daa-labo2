@@ -1,7 +1,7 @@
 /**
  * DAA - labo2
  * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
- * Date : 12.10.2025
+ * Date : 03.10.2025
  * Description : Activity that manage fragment stack
  */
 package ch.heigvd.iict.daa.template
@@ -17,6 +17,10 @@ import android.widget.Button
 class MainActivityFragment2 : AppCompatActivity() {
     private var id: Int = 0;
 
+    /**
+     * Initialise l'activité et configure les boutons de navigation
+     * @param savedInstanceState État sauvegardé de l'activité
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,12 +43,16 @@ class MainActivityFragment2 : AppCompatActivity() {
         closeButton.setOnClickListener { close() }
     }
 
-    // Either get back to the previous fragment in the stack, or close
+    /**
+     * Retourne au fragment précédent dans la pile
+     */
     private fun back() {
         supportFragmentManager.popBackStack()
     }
 
-    // Close the activity
+    /**
+     * Ferme l'activité en vidant toute la pile de fragments
+     */
     private fun close() {
         supportFragmentManager.popBackStack(
             null,
@@ -53,7 +61,9 @@ class MainActivityFragment2 : AppCompatActivity() {
         finish()
     }
 
-    // Pile up the current and go to the next fragment
+    /**
+     * Ajoute un nouveau fragment Step à la pile avec un ID incrémenté
+     */
     private fun next() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, Step.newInstance(++id))
@@ -61,13 +71,19 @@ class MainActivityFragment2 : AppCompatActivity() {
             .commit()
     }
 
-    // Sauvegarde l'ancien état avant de tuer l'activité
+    /**
+     * Sauvegarde le compteur avant destruction de l'activité
+     * @param outState Bundle où sauvegarder l'état
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt("counter", id)
         super.onSaveInstanceState(outState)
     }
 
-    // Restore l'ancien état
+    /**
+     * Restaure le compteur après recréation de l'activité
+     * @param savedInstanceState Bundle contenant l'état sauvegardé
+     */
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         // get values from saved state
         id = savedInstanceState.getInt("counter")

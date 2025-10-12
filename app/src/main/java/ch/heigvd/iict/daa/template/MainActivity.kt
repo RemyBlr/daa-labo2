@@ -3,6 +3,7 @@
  * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
  * Date : 03.10.2025
  * Description : Affiche un label et un bouton pour éditer le nom d'utilisateur
+ * Note : IA utilisée pour corriger et compléter les commentaires KDoc
  */
 package ch.heigvd.iict.daa.labo2
 
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity() {
     private var FILE = "MainActivity -> "
 
 
+    /**
+     * Initialise l'activité, configure la vue et enregistre le contrat de résultat
+     * @param savedInstanceState État sauvegardé de l'activité
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -74,26 +79,41 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, FILE + "onCreate")
     }
 
+    /**
+     * Appelé lors du démarrage de l'activité
+     */
     override fun onStart() {
         super.onStart()
         Log.d(TAG, FILE + "onStart")
     }
 
+    /**
+     * Appelé lorsque l'activité devient visible et interactive
+     */
     override fun onResume() {
         super.onResume()
         Log.d(TAG, FILE + "onResume")
     }
 
+    /**
+     * Appelé lorsque l'activité perd le focus
+     */
     override fun onPause() {
         super.onPause()
         Log.d(TAG, FILE + "onPause")
     }
 
+    /**
+     * Appelé lorsque l'activité n'est plus visible
+     */
     override fun onStop() {
         super.onStop()
         Log.d(TAG, FILE + "nStop")
     }
 
+    /**
+     * Appelé avant la destruction de l'activité
+     */
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, FILE + "onDestroy")

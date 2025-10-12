@@ -24,6 +24,10 @@ class EditUsernameActivity : AppCompatActivity() {
     private var TAG = "Lifecycle"
     private var FILE = "EditUsernameActivity -> "
 
+    /**
+     * Initialise l'activité et configure le bouton de sauvegarde
+     * @param savedInstanceState État sauvegardé de l'activité
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -61,26 +65,41 @@ class EditUsernameActivity : AppCompatActivity() {
         Log.d(TAG, FILE + "onCreate")
     }
 
+    /**
+     * Appelé lors du démarrage de l'activité
+     */
     override fun onStart() {
         super.onStart()
         Log.d(TAG, FILE + "onStart")
     }
 
+    /**
+     * Appelé lorsque l'activité devient visible et interactive
+     */
     override fun onResume() {
         super.onResume()
         Log.d(TAG, FILE + "onResume")
     }
 
+    /**
+     * Appelé lorsque l'activité perd le focus
+     */
     override fun onPause() {
         super.onPause()
         Log.d(TAG, FILE + "onPause")
     }
 
+    /**
+     * Appelé lorsque l'activité n'est plus visible
+     */
     override fun onStop() {
         super.onStop()
         Log.d(TAG, FILE + "onStop")
     }
 
+    /**
+     * Appelé avant la destruction de l'activité
+     */
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, FILE + "onDestroy")

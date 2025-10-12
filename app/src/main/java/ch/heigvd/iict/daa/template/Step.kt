@@ -24,6 +24,10 @@ private const val COUNTER = "counter"
 class Step : Fragment() {
     private var id: Int = 0
 
+    /**
+     * Initialise le fragment et récupère l'ID passé en argument
+     * @param savedInstanceState État sauvegardé du fragment
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -31,6 +35,13 @@ class Step : Fragment() {
         }
     }
 
+    /**
+     * Crée la vue du fragment à partir du layout XML
+     * @param inflater Inflateur de layout
+     * @param container Conteneur parent
+     * @param savedInstanceState État sauvegardé
+     * @return La vue créée
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +50,11 @@ class Step : Fragment() {
         return inflater.inflate(R.layout.fragment_step, container, false)
     }
 
+    /**
+     * Affiche l'ID du fragment dans le TextView
+     * @param view Vue racine du fragment
+     * @param savedInstanceState État sauvegardé
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,6 +67,7 @@ class Step : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
+         * @param newId L'ID à afficher dans le fragment
          * @return A new instance of fragment Step.
          */
         @JvmStatic

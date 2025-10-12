@@ -199,3 +199,7 @@ La deuxième partie nous a intoduit aux fragments en nous montrant comment organ
 Finalement, la troisième partie nous a montré le Fragmentmanager et la gestion de pile de fragments.
 
 Grâce à ce labo, nous savons maintenant comment fonctionner pour avoir une application stable et fluide en utilisant ces différents composants Android.
+
+## Note sur l'utilisation de l'IA
+
+Nous avons utilisé GitHub Copilot pour nous aider à compléter les commentaires des fichiers Kotlin, en respectant le format KDoc. Nous avons également utilisé ChatGPT pour reformuler certaines phrases du rapport, afin d'améliorer la clarté du texte.
