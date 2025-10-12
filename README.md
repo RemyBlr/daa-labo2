@@ -1,7 +1,14 @@
-# DAA - labo2
-# Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
-# Date : 03.10.2025
-# Classe_Groupe : DAA_B_9
+---
+title: |
+  | \vspace{5cm} \LARGE DAA - labo2
+subtitle: DAA_B_9
+author: Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+date: 03.10.2025
+geometry: margin=2cm
+output: pdf_document
+---
+
+\pagebreak
 
 ## Introduction
 Ce laboratoire à pour but de nous familiariser avec les bases du développement Android en utilisant Kotlin.
@@ -35,15 +42,15 @@ suivantes, vous mettrez en évidence les différentes instances de chaque Activi
 
   J'ai mal lu l'énnoncé et ai commencé par des diagrammes de séquence, ils sont à dispositions dans le dossier [images](./images)
 
-  - L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et
-  sauve.
+  \pagebreak
 
-  <img src="./images/daa_labo2_cas1_state.png" width="300px">
-  
-  - L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en
-  mode paysage, renseigne son prénom et sauve.
+  ![L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et sauve.](./images/daa_labo2_cas1_state.png){ width=300px }
 
-  <img src="./images/daa_labo2_cas2_state.png" width="300px">
+  \pagebreak
+
+  ![L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en mode paysage, renseigne son prénom et sauve.](./images/daa_labo2_cas2_state.png){ width=300px }
+
+  \pagebreak
 
 - Que faut-il mettre en place pour que vos Activités supportent la rotation de l’écran ? Est-ce
 nécessaire de le réaliser pour les deux Activités, quelle est la différence ?
@@ -106,7 +113,7 @@ Malgré la duplication du fragment les 2 différent conteneurs de fragments. Don
 
 ## Exercice 3 : Le FragmentManager
 
-## Questions
+### Questions
 
 • A l’initialisation de l’Activité, comment peut-on faire en sorte que la première étape s’affiche automatiquement ?
 ```xml
@@ -126,7 +133,7 @@ Dans le code du layout *(donc le xml)* on ajoute la **référence** de la classe
 
 >se référer au support de cours "3 - Les briques de base - Activités, Fragments et Services" Slide 41
 
-### Comment pouvez-vous faire en sorte que votre implémentation supporte la rotation de l’écran ? Nous nous intéressons en particulier au maintien de l’état de la pile de Fragments et de l’étape en cours lors de la rotation.
+- Comment pouvez-vous faire en sorte que votre implémentation supporte la rotation de l’écran ? Nous nous intéressons en particulier au maintien de l’état de la pile de Fragments et de l’étape en cours lors de la rotation.
 
 En effet, lorsqu'il y a une rotation de l'écran *(passage au mode "landscape")*, la pile de Fragments est recréée à l’identique par le **FragmentManager**, mais pas l’**état interne** des Fragments.
 
@@ -138,7 +145,7 @@ La solution consiste à **sauvegarder** l'id lorsque l'activité est sur le poin
 
 >La [documentation](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)) officielle
 
-### Dans une transaction sur le Fragment, quelle est la différence entre les méthodes `add` et `replace` ?
+- Dans une transaction sur le Fragment, quelle est la différence entre les méthodes `add` et `replace` ?
 
 La méthode `add()` ajoute un nouveau fragment au-dessus de ce qui existe déjà dans le conteneur. Si un fragment est déjà présent dans le conteneur, `add()` place le nouveau fragment par-dessus l'ancien. On le remarque avec notre exercice car les *ids* affichés se superposent.
 Les deux fragments sont techniquement dans le conteneur en même temps. Le fragment précédent n'est pas détruit. Son cycle de vie continue *(pas de `onDestroy()`)*, mais il passe à l'état `onStop()`.
@@ -150,7 +157,7 @@ A noter que je sauvegarde les fragments dans une "backstack" géré par le Fragm
 
 >Voir plus dans la [documentation](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#add(int,%20java.lang.Class%3C?%20extends%20androidx.fragment.app.Fragment%3E,%20android.os.Bundle)) officielle
 
-## Choix d'implémentations
+### Choix d'implémentations
 
 En ce qui concerne l'implémentation, elle a majoritairement été discuté lors de la section questions-réponses.
 
@@ -171,7 +178,7 @@ On retrouve les éléments tel que, `fragmentmanager_activity.xml` qui est le la
 
 `MainActivityFragment2.kt` est le programme qui lance l'activité *(on en a qu'une seule pour cette exercice)*. C'est-elle qui gère le **FragmentTransaction** donc tout ce qui concerne la pile de fragments et d'états. Ainsi que `Step.kt` qui permet de manipuler le fragment.
 
-## Tests
+### Tests
 | Test effectué                                           | Résultat attendu                                                  | Résultat obtenu |
 | ------------------------------------------------------- | ----------------------------------------------------------------- | --------------- |
 | Ouvrir l'application                                    | Affichage d'un fragment par défaut                                | OK              |
@@ -183,4 +190,12 @@ On retrouve les éléments tel que, `fragmentmanager_activity.xml` qui est le la
 
 ## Conclusion
 
-TODO
+Ce labo nous a permis de comprendre le fonctionnement des briques principales d'Android qui sont les activités et les fragments.
+
+La première partie nous a appris à gérer la navigation et la communication entre activités, ainsi qu'a observer différents événements comme la rotation de l'écran ou les cycles de vie.
+
+La deuxième partie nous a intoduit aux fragments en nous montrant comment organiser une activité en plusieurs composant indépendants.
+
+Finalement, la troisième partie nous a montré le Fragmentmanager et la gestion de pile de fragments.
+
+Grâce à ce labo, nous savons maintenant comment fonctionner pour avoir une application stable et fluide en utilisant ces différents composants Android.
