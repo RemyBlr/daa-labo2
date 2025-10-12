@@ -1,3 +1,9 @@
+/**
+ * DAA - labo2
+ * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+ * Date : 03.10.2025
+ * Description : Fragment internal state
+ */
 package ch.heigvd.iict.daa.template
 
 import android.os.Bundle

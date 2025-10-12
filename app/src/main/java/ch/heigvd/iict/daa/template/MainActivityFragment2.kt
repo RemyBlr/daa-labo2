@@ -1,3 +1,9 @@
+/**
+ * DAA - labo2
+ * Auteurs : Bleuer Rémy, Changanaqui Yoann, Rajadurai Thirusan
+ * Date : 12.10.2025
+ * Description : Activity that manage fragment stack
+ */
 package ch.heigvd.iict.daa.template
 
 import android.os.Bundle
